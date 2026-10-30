@@ -1,0 +1,134 @@
+{
+  "clientName": "Thunder Client",
+  "collectionName": "API Gerenciamento de Veículos",
+  "collectionId": "b1b0a852-7d23-45a2-944e-e17f0e0bc39e",
+  "dateExported": "2026-10-30T21:00:00.000Z",
+  "version": "1.1",
+  "folders": [],
+  "requests": [
+    {
+      "_id": "req_1",
+      "colId": "b1b0a852-7d23-45a2-944e-e17f0e0bc39e",
+      "containerId": "",
+      "name": "1. GET /veiculos - Listar todos",
+      "url": "http://localhost:3000/veiculos",
+      "method": "GET",
+      "sortNum": 10000,
+      "created": "2026-10-30T21:00:00.000Z",
+      "modified": "2026-10-30T21:00:00.000Z",
+      "headers": []
+    },
+    {
+      "_id": "req_2",
+      "colId": "b1b0a852-7d23-45a2-944e-e17f0e0bc39e",
+      "containerId": "",
+      "name": "2. GET /veiculos/:id - Buscar por ID",
+      "url": "http://localhost:3000/veiculos/6",
+      "method": "GET",
+      "sortNum": 20000,
+      "created": "2026-10-30T21:00:00.000Z",
+      "modified": "2026-10-30T21:00:00.000Z",
+      "headers": []
+    },
+    {
+      "_id": "req_3",
+      "colId": "b1b0a852-7d23-45a2-944e-e17f0e0bc39e",
+      "containerId": "",
+      "name": "3. GET /veiculos/:id - ID Inexistente (404)",
+      "url": "http://localhost:3000/veiculos/99999",
+      "method": "GET",
+      "sortNum": 30000,
+      "created": "2026-10-30T21:00:00.000Z",
+      "modified": "2026-10-30T21:00:00.000Z",
+      "headers": []
+    },
+    {
+      "_id": "req_4",
+      "colId": "b1b0a852-7d23-45a2-944e-e17f0e0bc39e",
+      "containerId": "",
+      "name": "4. POST /veiculos - Criar novo veículo",
+      "url": "http://localhost:3000/veiculos",
+      "method": "POST",
+      "sortNum": 40000,
+      "created": "2026-10-30T21:00:00.000Z",
+      "modified": "2026-10-30T21:00:00.000Z",
+      "headers": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"modelo\": \"Volvo EX30 Ultra\",\n  \"tipo_propulsao\": \"eletrico\",\n  \"ano_modelo\": 2026,\n  \"autonomia_km\": 476,\n  \"capacidade_bateria_kwh\": 69.00,\n  \"preco_base\": 269950.00,\n  \"status_producao\": \"em_producao\"\n}"
+      }
+    },
+    {
+      "_id": "req_5",
+      "colId": "b1b0a852-7d23-45a2-944e-e17f0e0bc39e",
+      "containerId": "",
+      "name": "5. POST /veiculos - Erro validação enum (400)",
+      "url": "http://localhost:3000/veiculos",
+      "method": "POST",
+      "sortNum": 50000,
+      "created": "2026-10-30T21:00:00.000Z",
+      "modified": "2026-10-30T21:00:00.000Z",
+      "headers": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"modelo\": \"Carro Diesel\",\n  \"tipo_propulsao\": \"diesel\",\n  \"ano_modelo\": 2026,\n  \"preco_base\": 150000.00\n}"
+      }
+    },
+    {
+      "_id": "req_6",
+      "colId": "b1b0a852-7d23-45a2-944e-e17f0e0bc39e",
+      "containerId": "",
+      "name": "6. PUT /veiculos/:id - Atualizar veículo existente",
+      "url": "http://localhost:3000/veiculos/6",
+      "method": "PUT",
+      "sortNum": 60000,
+      "created": "2026-10-30T21:00:00.000Z",
+      "modified": "2026-10-30T21:00:00.000Z",
+      "headers": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"modelo\": \"Fiat Pulse Audace Hybrid Pro\",\n  \"preco_base\": 129990.00,\n  \"status_producao\": \"em_producao\"\n}"
+      }
+    },
+    {
+      "_id": "req_7",
+      "colId": "b1b0a852-7d23-45a2-944e-e17f0e0bc39e",
+      "containerId": "",
+      "name": "7. PUT /veiculos/:id - ID Inexistente (404)",
+      "url": "http://localhost:3000/veiculos/99999",
+      "method": "PUT",
+      "sortNum": 70000,
+      "created": "2026-10-30T21:00:00.000Z",
+      "modified": "2026-10-30T21:00:00.000Z",
+      "headers": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"modelo\": \"Inexistente\"\n}"
+      }
+    },
+    {
+      "_id": "req_8",
+      "colId": "b1b0a852-7d23-45a2-944e-e17f0e0bc39e",
+      "containerId": "",
+      "name": "8. DELETE /veiculos/:id - Remover veículo",
+      "url": "http://localhost:3000/veiculos/10",
+      "method": "DELETE",
+      "sortNum": 80000,
+      "created": "2026-10-30T21:00:00.000Z",
+      "modified": "2026-10-30T21:00:00.000Z",
+      "headers": []
+    },
+    {
+      "_id": "req_9",
+      "colId": "b1b0a852-7d23-45a2-944e-e17f0e0bc39e",
+      "containerId": "",
+      "name": "9. DELETE /veiculos/:id - ID Inexistente (404)",
+      "url": "http://localhost:3000/veiculos/99999",
+      "method": "DELETE",
+      "sortNum": 90000,
+      "created": "2026-10-30T21:00:00.000Z",
+      "modified": "2026-10-30T21:00:00.000Z",
+      "headers": []
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "info": {
+    "_postman_id": "c1f7a42a-89a1-4d3b-9e8a-b85e0549c67b",
+    "name": "API Gerenciamento de Veículos",
+    "description": "Coleção de testes para a API REST de Gerenciamento de Veículos (Node.js, Express, Knex, PostgreSQL)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Status da API (Health Check)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": [""]
+        }
+      }
+    },
+    {
+      "name": "2. GET /veiculos - Listar todos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/veiculos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["veiculos"]
+        }
+      }
+    },
+    {
+      "name": "3. GET /veiculos/:id - Buscar por ID existente (Sucesso 200)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/veiculos/6",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["veiculos", "6"]
+        }
+      }
+    },
+    {
+      "name": "4. GET /veiculos/:id - Buscar por ID inexistente (Erro 404)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/veiculos/99999",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["veiculos", "99999"]
+        }
+      }
+    },
+    {
+      "name": "5. POST /veiculos - Cadastrar novo veículo (Sucesso 201)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"modelo\": \"Volvo EX30 Ultra\",\n  \"tipo_propulsao\": \"eletrico\",\n  \"ano_modelo\": 2026,\n  \"autonomia_km\": 476,\n  \"capacidade_bateria_kwh\": 69.00,\n  \"preco_base\": 269950.00,\n  \"status_producao\": \"em_producao\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/veiculos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["veiculos"]
+        }
+      }
+    },
+    {
+      "name": "6. POST /veiculos - Dados inválidos / enum incorreto (Erro 400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"modelo\": \"Carro Inválido\",\n  \"tipo_propulsao\": \"combustao\",\n  \"ano_modelo\": 2026,\n  \"preco_base\": 150000.00\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/veiculos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["veiculos"]
+        }
+      }
+    },
+    {
+      "name": "7. PUT /veiculos/:id - Atualizar veículo existente (Sucesso 200)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"modelo\": \"Volvo EX30 Ultra Atualizado\",\n  \"preco_base\": 259900.00,\n  \"status_producao\": \"descontinuado\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/veiculos/6",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["veiculos", "6"]
+        }
+      }
+    },
+    {
+      "name": "8. PUT /veiculos/:id - Atualizar ID inexistente (Erro 404)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"modelo\": \"Carro Fantasma\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/veiculos/99999",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["veiculos", "99999"]
+        }
+      }
+    },
+    {
+      "name": "9. DELETE /veiculos/:id - Remover ID inexistente (Erro 404)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/veiculos/99999",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["veiculos", "99999"]
+        }
+      }
+    },
+    {
+      "name": "10. DELETE /veiculos/:id - Remover veículo existente (Sucesso 200)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/veiculos/15",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["veiculos", "15"]
+        }
+      }
+    }
+  ]
+}
