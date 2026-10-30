@@ -1,3 +1,17 @@
+/**
+ * ============================================================================
+ * Projeto: API REST de Gerenciamento de Veículos
+ * Autor: Ryan da Silva Benedito
+ * Disciplina: Programação cliente/servidor - FAETERJ
+ * Professor: Henrique Barbosa
+ *
+ * Descrição:
+ * Camada de Rotas (Routing). Define e distribui os endpoints REST para o
+ * recurso '/veiculos' associando cada verbo HTTP (GET, POST, PUT, DELETE) ao
+ * seu respectivo método no controlador.
+ * ============================================================================
+ */
+
 const { Router } = require('express');
 const veiculosController = require('./controllers/veiculosController');
 

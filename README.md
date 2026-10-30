@@ -1,9 +1,26 @@
 # 🚗 API REST de Gerenciamento de Veículos
 
-Backend desenvolvido em **Node.js**, **Express** e **Knex** para o gerenciamento de veículos de uma montadora, com persistência em banco de dados relacional **PostgreSQL** hospedado no **Neon**.
+Backend robusto e completo desenvolvido em **Node.js**, **Express** e **Knex** para o gerenciamento de veículos de uma montadora automotiva, com persistência em banco de dados relacional **PostgreSQL** hospedado em nuvem no **Neon**.
 
-Projeto acadêmico para a disciplina **Programação cliente/servidor** - FAETERJ  
-**Professor:** Henrique Barbosa
+---
+
+### 👨‍💻 Identificação do Projeto
+- **Desenvolvedor:** Ryan da Silva Benedito
+- **Instituição:** FAETERJ
+- **Disciplina:** Programação cliente/servidor
+- **Professor:** Henrique Barbosa
+- **Tipo de Trabalho:** Trabalho Individual de Avaliação
+
+---
+
+### 🎯 O que o código faz?
+Este backend expõe uma **API RESTful** padronizada para o recurso `/veiculos`, permitindo a gestão do ciclo de vida dos veículos produzidos por uma montadora. As principais funcionalidades incluem:
+- **Listagem Geral (GET /veiculos):** Consulta e retorna todos os veículos cadastrados no banco de dados com ordenação por ID.
+- **Consulta Específica (GET /veiculos/:id):** Busca os detalhes completos de um veículo pelo seu identificador primário, retornando status `200` em caso de sucesso ou `404 Not Found` caso não exista.
+- **Cadastro (POST /veiculos):** Insere um novo veículo validando campos obrigatórios, tipos numéricos e ENUMs específicos (`tipo_propulsao` e `status_producao`), atribuindo automaticamente o valor padrão `'em_producao'` caso o status não seja informado. Retorna status `201 Created` com o ID autoincrementado gerado pelo banco.
+- **Atualização (PUT /veiculos/:id):** Modifica os dados de um veículo já existente no banco, validando se o registro existe previamente e aplicando validações estritas aos campos enviados.
+- **Exclusão (DELETE /veiculos/:id):** Remove o veículo do banco de dados relacional pelo ID, retornando mensagem de confirmação ou status `404` se o registro não for encontrado.
+- **Proteção e Integridade:** Todas as operações utilizam o query builder **Knex** com consultas parametrizadas, prevenindo falhas de injeção de SQL (SQL Injection), além de conexão segura com criptografia **SSL**.
 
 ---
 
@@ -344,3 +361,4 @@ Para testar visualmente com ferramentas HTTP:
 - O arquivo `.env` está devidamente listado no `.gitignore` para impedir que senhas ou URLs de conexão vazem em repositórios públicos.
 - É fornecido o arquivo `.env.example` com placeholders para orientar a configuração por outros desenvolvedores e avaliadores.
 - O Knex utiliza consultas parametrizadas, prevenindo ataques de **SQL Injection**.
+

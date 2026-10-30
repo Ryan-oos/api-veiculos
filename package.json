@@ -1,7 +1,7 @@
 {
   "name": "api-veiculos",
   "version": "1.0.0",
-  "description": "API REST de Gerenciamento de Veículos com Node.js, Express e Knex",
+  "description": "API REST de Gerenciamento de Veículos desenvolvida por Ryan da Silva Benedito com Node.js, Express, Knex e PostgreSQL",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -13,9 +13,10 @@
     "knex",
     "postgres",
     "rest-api",
-    "faeterj"
+    "faeterj",
+    "veiculos"
   ],
-  "author": "",
+  "author": "Ryan da Silva Benedito <profissionalryan68@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",

@@ -1,12 +1,22 @@
+/**
+ * ============================================================================
+ * Projeto: API REST de Gerenciamento de Veículos
+ * Autor: Ryan da Silva Benedito
+ * Disciplina: Programação cliente/servidor - FAETERJ
+ * Professor: Henrique Barbosa
+ *
+ * Descrição:
+ * Camada de Acesso a Dados (Model). Encapsula todas as operações de banco de
+ * dados PostgreSQL utilizando o query builder Knex (select, insert, update, del),
+ * garantindo consultas seguras, parametrizadas e protegidas contra SQL Injection.
+ * ============================================================================
+ */
+
 const db = require('../database/db');
 
-/**
- * Camada de Acesso a Dados (Model) para Veículos
- * Utiliza o Knex para executar as operações no banco PostgreSQL
- */
 const VeiculoModel = {
   /**
-   * Busca todos os veículos cadastrados
+   * Busca todos os veículos cadastrados no banco.
    * @returns {Promise<Array>} Lista de veículos ordenados por ID
    */
   async findAll() {
@@ -14,7 +24,7 @@ const VeiculoModel = {
   },
 
   /**
-   * Busca um veículo específico pelo ID
+   * Busca um veículo específico pelo ID.
    * @param {number} id Identificador do veículo
    * @returns {Promise<Object|undefined>} Veículo encontrado ou undefined
    */
@@ -23,7 +33,7 @@ const VeiculoModel = {
   },
 
   /**
-   * Cadastra um novo veículo
+   * Cadastra um novo veículo no banco.
    * @param {Object} dadosVeiculo Dados validados do veículo a ser inserido
    * @returns {Promise<Object>} Veículo recém-criado com seu ID gerado
    */
@@ -35,7 +45,7 @@ const VeiculoModel = {
   },
 
   /**
-   * Atualiza os dados de um veículo existente
+   * Atualiza os dados de um veículo existente.
    * @param {number} id Identificador do veículo
    * @param {Object} dadosAtualizacao Dados para atualização
    * @returns {Promise<Object>} Veículo com dados atualizados
@@ -49,7 +59,7 @@ const VeiculoModel = {
   },
 
   /**
-   * Remove um veículo pelo ID
+   * Remove um veículo pelo ID.
    * @param {number} id Identificador do veículo
    * @returns {Promise<number>} Quantidade de linhas afetadas (0 se não encontrado, 1 se removido)
    */

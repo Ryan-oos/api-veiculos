@@ -19,3 +19,4 @@ INSERT INTO veiculos (modelo, tipo_propulsao, ano_modelo, autonomia_km, capacida
 ('Fiat Pulse Audace Hybrid', 'hibrido', 2026, 680, NULL, 125990.00, 'em_producao'),
 ('Peugeot e-2008 GT', 'eletrico', 2026, 406, 54.00, 199990.00, 'em_producao'),
 ('BYD Dolphin Mini', 'eletrico', 2025, 280, 38.00, 115800.00, 'em_producao');
+

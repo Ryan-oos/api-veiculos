@@ -1,3 +1,19 @@
+/**
+ * ============================================================================
+ * Projeto: API REST de Gerenciamento de Veículos
+ * Autor: Ryan da Silva Benedito
+ * Disciplina: Programação cliente/servidor - FAETERJ
+ * Professor: Henrique Barbosa
+ *
+ * Descrição:
+ * Camada de Controladores (Controller). Responsável por receber as requisições
+ * HTTP, validar detalhadamente os dados de entrada (tipos de dados, enums,
+ * campos obrigatórios e opcionais), orquestrar as chamadas para a camada de
+ * persistência (Model) e retornar os códigos de status HTTP apropriados
+ * (200, 201, 400, 404, 500).
+ * ============================================================================
+ */
+
 const VeiculoModel = require('../models/veiculoModel');
 
 const TIPOS_PROPULSAO_VALIDOS = ['eletrico', 'hibrido'];
@@ -6,7 +22,8 @@ const STATUS_PRODUCAO_VALIDOS = ['em_producao', 'descontinuado'];
 const veiculosController = {
   /**
    * GET /veiculos
-   * Lista todos os veículos cadastrados
+   * Lista todos os veículos cadastrados no sistema.
+   * Retorna status 200 com array de veículos (ou array vazio se não houver).
    */
   async listar(req, res) {
     try {
@@ -22,7 +39,8 @@ const veiculosController = {
 
   /**
    * GET /veiculos/:id
-   * Retorna um veículo específico pelo ID
+   * Retorna os dados de um veículo específico identificado pelo ID.
+   * Retorna status 200 com os dados ou 404 se não for encontrado.
    */
   async buscarPorId(req, res) {
     try {
@@ -54,7 +72,10 @@ const veiculosController = {
 
   /**
    * POST /veiculos
-   * Cadastra um novo veículo
+   * Cadastra um novo veículo no banco de dados.
+   * Valida obrigatoriedade de campos, valores de ENUM e números positivos.
+   * Define 'em_producao' caso 'status_producao' seja omitido.
+   * Retorna status 201 com o objeto criado e seu ID gerado.
    */
   async criar(req, res) {
     try {
@@ -155,7 +176,9 @@ const veiculosController = {
 
   /**
    * PUT /veiculos/:id
-   * Atualiza os dados de um veículo existente
+   * Atualiza os dados de um veículo existente.
+   * Valida se o registro existe (404 caso contrário) e valida os novos dados.
+   * Retorna status 200 com os dados atualizados.
    */
   async atualizar(req, res) {
     try {
@@ -286,7 +309,8 @@ const veiculosController = {
 
   /**
    * DELETE /veiculos/:id
-   * Remove um veículo existente pelo ID
+   * Remove um veículo existente pelo ID.
+   * Retorna status 200 com mensagem de confirmação ou status 404 se não encontrado.
    */
   async deletar(req, res) {
     try {

@@ -1,3 +1,17 @@
+/**
+ * ============================================================================
+ * Projeto: API REST de Gerenciamento de Veículos
+ * Autor: Ryan da Silva Benedito
+ * Disciplina: Programação cliente/servidor - FAETERJ
+ * Professor: Henrique Barbosa
+ *
+ * Descrição:
+ * Suíte de testes automatizados ponta a ponta (E2E). Inicializa um servidor
+ * HTTP de teste e dispara requisições cobrindo cenários de sucesso (200, 201)
+ * e cenários de erro (400, 404) para todas as rotas do CRUD.
+ * ============================================================================
+ */
+
 require('dotenv').config();
 const http = require('http');
 const express = require('express');
@@ -15,6 +29,7 @@ async function runTests() {
   await new Promise(resolve => server.listen(3001, resolve));
   console.log('----------------------------------------------------');
   console.log(' Servidor de testes iniciado na porta 3001');
+  console.log(' Desenvolvedor: Ryan da Silva Benedito');
   console.log('----------------------------------------------------');
 
   const baseUrl = 'http://127.0.0.1:3001';
@@ -147,7 +162,7 @@ async function runTests() {
       throw new Error(`Falha na atualização do veículo ID ${createdId}`);
     }
 
-    // 7. PUT /veiculos/:id (Erros: 404 e 400)
+    // 7. PUT /veiculos/:id (Cenários de Erro):
     console.log('\n[7] Testando PUT /veiculos/:id (Cenários de Erro):');
     const r7_notfound = await request('/veiculos/99999999', {
       method: 'PUT',
